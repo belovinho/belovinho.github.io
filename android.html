@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <!-- <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <title>WebAR by AR.Target</title>
+    <!-- <meta aframe-injected="" name="mobile-web-app-capable" content="yes" />
+    <meta aframe-injected="" name="theme-color" content="black" /> -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://play-lh.googleusercontent.com/yyYIKYIPCrr1qgLzkX0DoPGG2gbBDPCxN5kjwBDLK4-CIf-x46Fprm3qmE9aH7uVuA"
+    />
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="ar-components.js"></script>
+    <!-- <script src = "assets/scripts/aframe.min.js"></script> -->
+    <!-- <script src="scripts/aframe-ar.js"></script> -->
+    <!-- <script src="scripts/aframe-look-at-component.min.js"></script> -->
+    <!-- <script src="scripts/aframe-extras.loaders.min.js"></script> -->
+    <!-- <script src="scripts/iphone-inline-video.js"></script> -->
+  </head>
+  <body>
+    <!-- webxr="optionalFeatures:hit-test;"
+      hit-test
+      ar
+      embedded
+      arjs="debugUIEnabled: false; trackingMethod: best;"
+      renderer="gammaOutput: true" -->
+    <a-scene webxr="optionalFeatures:hit-test;">
+      <!-- <a-camera position="0 0.3 0"></a-camera> -->
+      <a-entity id="world" rotation="90 0 0" position="0 1.6  -0.8">
+        <!-- <a-torus color="#43A367" radius="0.25" radius-tubular="0.03"></a-torus> -->
+        <a-plane
+          position="0 0 0"
+          rotation="0 0 0"
+          gltf-model="./telephone.glb"
+          width="0.5"
+          height="0.5"
+        ></a-plane>
+      </a-entity>
+      <a-entity ar-hit-test="target:#world;">
+        <a-plane
+          rotation="-90 0 0"
+          width="0.2"
+          height="0.2"
+          src="./arrow.png"
+          material="transparent:true;"
+        ></a-plane>
+      </a-entity>
+      <!-- <a-sky hide-in-ar-mode color="#ECECEC"></a-sky> -->
+    </a-scene>
+  </body>
+</html>

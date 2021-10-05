@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>ARxTarget</title>
+  </head>
+  <body>
+    <div class="header">
+      <img class="logo" src="./logoloader.png" />
+      <h3>Добро пожаловать в AR Target. Для просмотра AR нажмите на кнопку</h3>
+      <a id="arModelLinkIos" href="./telephone.usdz" rel="ar">
+        <img src="ARKIT.png" style="width: 200px" />
+      </a>
+      <a id="arModelLinkAndroid" href="android.html" rel="ar">
+        <img src="WebXR.png" style="width: 200px" />
+      </a>
+    </div>
+    <div class="linkContainer"></div>
+    <!-- <a rel="ar" id="CustomAction" href="./sofa.usdz">
+      <img style="width: 100px" src="apple_logo.png" />
+    </a> -->
+    <!-- <a href="https://themost.media/telephone.usdz">yandex</a> -
+    <a href="google.com">google</a> -->
+    <script defer>
+      // const inner = <a href="./telephone.usdz" rel="ar">
+      //   <img src="ARKIT.png" style="width: 200px" />
+      // </a>
+      if (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        )
+      ) {
+        if (/Android/i.test(navigator.userAgent)) {
+          document.querySelector("#arModelLinkIos").style.display = "none";
+        } else if (/iPhone/i.test(navigator.userAgent)) {
+          document.querySelector("#arModelLinkAndroid").style.display = "none";
+        }
+        // код для мобильных устройств
+      } else {
+        const h3 = document.getElementsByTagName("h3");
+        h3[0].innerText =
+          "Добро пожаловать в AR Target. Для просмотра AR откройте сайт на мобильном устройстве";
+        document.querySelector("#arModelLinkIos").style.display = "none";
+        document.querySelector("#arModelLinkAndroid").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
